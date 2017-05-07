@@ -53,7 +53,7 @@ namespace MVC5Course.Models
         [DisplayName("商品庫存")]
         public Nullable<decimal> Stock { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public bool Is刪除 { get; set; }
         public System.DateTime CreatedOn { get; set; }
 
         public virtual ICollection<OrderLine> OrderLine { get; set; }

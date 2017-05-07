@@ -7,7 +7,7 @@
       <Diagram DiagramId="1306716be00b4cdc859055e128473d59" Name="Diagram1">
         <EntityTypeShape EntityType="FabricsModel.Client" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FabricsModel.Occupation" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="FabricsModel.Order" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FabricsModel.Order" Width="1.5" PointX="5.125" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FabricsModel.OrderLine" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FabricsModel.Product" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="FabricsModel.FK_Client_Occupation" ManuallyRouted="false" />
