@@ -92,5 +92,21 @@ namespace MVC5Course.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Details(int id)
+        {
+            var data = db.Database.SqlQuery<Product>("SELECT * FROM dbo.Product WHERE ProductId=@p0", id).FirstOrDefault();
+            
+            return View(data);
+        }
+
+        public ActionResult RemoveAll()
+        {
+            //db.Product.RemoveRange(db.Product);
+            //db.SaveChanges();
+
+            db.Database.ExecuteSqlCommand("DELETE FROM dbo.Product");
+
+            return View();
+        }
     }
 }
