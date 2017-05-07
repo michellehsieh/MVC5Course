@@ -94,6 +94,7 @@ namespace MVC5Course.Controllers
 
         public ActionResult Details(int id)
         {
+            //以參數 @pX 防止SQL Injection
             var data = db.Database.SqlQuery<Product>("SELECT * FROM dbo.Product WHERE ProductId=@p0", id).FirstOrDefault();
             
             return View(data);
