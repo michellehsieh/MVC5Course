@@ -6,6 +6,9 @@ using System.Web;
 
 namespace MVC5Course.Models.ViewModels
 {
+    /// <summary>
+    ///  加入Class的註解
+    /// </summary>
     public class ProductLiteVM
     {
         public int ProductId { get; set; }
