@@ -72,12 +72,11 @@ namespace MVC5Course.Controllers
         {
             var product = db.Product.Find(id);
 
-            foreach (var item in product.OrderLine.ToList()) {
-                db.OrderLine.Remove(item);
-            }
+            //foreach (var item in product.OrderLine.ToList()) {
+            //    db.OrderLine.Remove(item);
+            //}
 
-            //db.OrderLine.RemoveRange(product.OrderLine);
-
+            db.OrderLine.RemoveRange(product.OrderLine);
             db.Product.Remove(product);
             db.SaveChanges();
 

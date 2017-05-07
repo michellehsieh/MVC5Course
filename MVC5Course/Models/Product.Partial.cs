@@ -4,10 +4,26 @@ namespace MVC5Course.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.Linq;
 
     [MetadataType(typeof(ProductMetaData))]
     public partial class Product
     {
+        public int 訂單數量 {
+            get {
+                ////先取得所有的OrderLine資料再Count
+                //return this.OrderLine.Count;
+
+                ////先取得所有的OrderLine資料再Count
+                //return this.OrderLine.Where(p => p.Qty > 400).Count;
+
+                ////先ToList再算出Count
+                //return this.OrderLine.Where(p => p.Qty > 400).ToList().Count;
+
+                //直接透過OrderLine去count(效能最佳)
+                return this.OrderLine.Count(p => p.Qty > 400);
+            }
+        }
     }
     
     public partial class ProductMetaData
