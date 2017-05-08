@@ -23,7 +23,7 @@ namespace MVC5Course.Models
 
                 //直接透過OrderLine去count(效能最佳)
                 return this.OrderLine.Count(p => p.Qty > 400);
-            }
+            } 
         }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
