@@ -21,7 +21,7 @@ namespace MVC5Course.Controllers
         {
             //var repo = new ProductRepository();
             //repo.UnitOfWork = new EFUnitOfWork();
-            var data = repo.getProduct列表頁所有資料(Active, showAll: true);
+            var data = repo.getProduct列表頁所有資料(Active, showAll: false);
             return View(data);
         }
 
@@ -128,6 +128,13 @@ namespace MVC5Course.Controllers
             //db.SaveChanges();
             
             repo.Delete(product);
+
+            // Product與OrderLines共用同一UnitOfWork，任一Commit，將一併執行
+            //var repoOrderLines = RepositoryHelper.GetOrderLineRepository(repo.UnitOfWork);
+            //foreach (var item in product.OrderLine) {
+            //  repoOrderLine.Delete(product);
+            //}
+
             repo.UnitOfWork.Commit();
             return RedirectToAction("Index");
         }
@@ -135,7 +142,7 @@ namespace MVC5Course.Controllers
 
         public ActionResult ListProducts()
         {
-            var data = repo.getProduct列表頁所有資料(Active: true, showAll: true)                
+            var data = repo.getProduct列表頁所有資料(Active: true, showAll: false)                
                 .Select(p => new ProductLiteVM()
                 {
                     ProductId = p.ProductId,
