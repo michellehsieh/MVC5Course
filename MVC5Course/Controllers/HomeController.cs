@@ -91,6 +91,8 @@ namespace MVC5Course.Controllers
 
         public ActionResult GetFile()
         {
+            //檔案格式ContentType查詢網址：http://www.freeformatter.com/mime-types-list.html
+
             //網頁瀏覽
             return File(Server.MapPath("~/Content/500-527.jpg"), "image/jpeg");
 
