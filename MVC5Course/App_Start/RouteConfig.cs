@@ -13,6 +13,10 @@ namespace MVC5Course
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //路由比對：執行時排除比對aspx
+            routes.IgnoreRoute("{anything}/{resource}.aspx/{*pathInfo}");
+
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
