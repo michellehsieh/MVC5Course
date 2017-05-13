@@ -17,10 +17,10 @@ namespace MVC5Course.Controllers
         }
 
         //HandleUnknowAction
-        protected override void HandleUnknownAction(string actionName)
-        {
-            //當頁面不存在或找不到頁面時，強迫回到首頁
-            this.RedirectToAction("Index", "Home").ExecuteResult(this.ControllerContext);
-        }
+        //protected override void HandleUnknownAction(string actionName)
+        //{
+        //    //當頁面不存在或找不到頁面時，強迫回到首頁
+        //    this.RedirectToAction("Index", "Home").ExecuteResult(this.ControllerContext);
+        //}
     }
 }
