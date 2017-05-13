@@ -22,6 +22,22 @@ namespace MVC5Course.Controllers
             //var repo = new ProductRepository();
             //repo.UnitOfWork = new EFUnitOfWork();
             var data = repo.getProduct列表頁所有資料(Active, showAll: false);
+
+            //強型別的傳值方式
+            //ViewData.Model = data;
+            //return View();
+
+            //弱型別的傳值方式(傳入view的值為object)
+            //ViewData["ppp"] = data;
+
+            //弱型別的傳值方式(同ViewData)
+            //ViewBag.qqq = data;
+
+            //弱型別的傳值方式(暫存 - 寫入的資料被讀過一次就會被刪除)
+            //TempData類似Session，但Session需人工刪除，TempData會自動刪除
+            //TempData未被讀過，則會一直存在
+            //TempData["xxx"] = data;
+
             return View(data);
         }
 
