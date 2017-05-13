@@ -106,5 +106,10 @@ namespace MVC5Course.Controllers
             db.Configuration.LazyLoadingEnabled = false;
             return Json(db.Product.Take(5), JsonRequestBehavior.AllowGet);
         }
+
+        //RedirectToAction  暫時轉址
+        //RedirectToActionPermanent  永久轉址
+        //只對搜尋引擎有差
+
     }
 }
