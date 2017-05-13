@@ -75,5 +75,17 @@ namespace MVC5Course.Controllers
         //        return sw.GetStringBuilder().ToString();
         //    }
         //}
+
+
+        
+        public ActionResult SomeAction()
+        {
+            // Content此建議功能由View來做
+            //Response.Write("<script>alert('建立成功！'); location.href='/';</script>");
+            //return "<script>alert('建立成功！'); location.href='/';</script>";
+            //return Content("<script>alert('建立成功！'); location.href='/';</script>");
+            
+            return PartialView("SuccessRedirect", "/");
+        }
     }
 }
