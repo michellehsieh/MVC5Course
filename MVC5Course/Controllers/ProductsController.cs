@@ -14,11 +14,15 @@ namespace MVC5Course.Controllers
     public class ProductsController : Controller
     {
         private FabricsEntities db = new FabricsEntities();
+        ProductRepository repo = RepositoryHelper.GetProductRepository();
 
         // GET: Products
         public ActionResult Index(bool? Active = true)
         {
-            var data = db.Product
+            //var repo = new ProductRepository();
+            //repo.UnitOfWork = new EFUnitOfWork();
+
+            var data = repo.All()
                 .Where(p => p.Active.HasValue && p.Active.Value == Active)
                 .OrderByDescending(p => p.ProductId).Take(10);
             return View(data);
@@ -31,7 +35,8 @@ namespace MVC5Course.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Product.Find(id);
+            Product product = repo.get單筆資料ByProductId(id.Value);
+            //Product product = db.Product.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
