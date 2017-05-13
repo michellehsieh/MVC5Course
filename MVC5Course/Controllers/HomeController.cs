@@ -60,6 +60,7 @@ namespace MVC5Course.Controllers
             return View();
         }
 
+        //直接執行特定View，並取得執行結果的方法
         //public string RenderRazorViewToString(string viewName, object model)
         //{
         //    ViewData.Model = model;
