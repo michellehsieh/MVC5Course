@@ -32,6 +32,14 @@ namespace MVC5Course.Controllers
             return View();
         }
 
+        //執行時不套用Layout
+        public ActionResult PartialAbout()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return PartialView();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
