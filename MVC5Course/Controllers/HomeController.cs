@@ -100,7 +100,7 @@ namespace MVC5Course.Controllers
             //return File(Server.MapPath("~/Content/500-527.jpg"), "image/jpeg", "NewName.jpg");
         }
 
-        //Json格式
+        //Json格式 
         public ActionResult GetJson()
         {
             db.Configuration.LazyLoadingEnabled = false;
