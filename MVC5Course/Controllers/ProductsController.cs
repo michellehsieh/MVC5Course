@@ -156,24 +156,24 @@ namespace MVC5Course.Controllers
         }
 
 
-        public ActionResult ListProducts(string q, int from = 0, int to = 99999)
+        public ActionResult ListProducts(ProductListSearchVM searchCondition)
         {
             var data = repo.getProduct列表頁所有資料(true);
 
             //表單送出只要有 Model Binding 就會有ModelState
+            
+            if (!String.IsNullOrEmpty(searchCondition.q)) {
+                data = data.Where(p => p.ProductName.Contains(searchCondition.q));
+            }                    
+            
 
-            if (!String.IsNullOrEmpty(q))
-            {
-                data = data.Where(p => p.ProductName.Contains(q));
+            if (searchCondition.from != 0) {
+                data = data.Where(p => p.Stock > searchCondition.from);
             }
 
-            if (from != 0) {
-                data = data.Where(p => p.Stock > from);
-            }
-
-            if (to != 0)
+            if (searchCondition.to != 0)
             {
-                data = data.Where(p => p.Stock < to);
+                data = data.Where(p => p.Stock < searchCondition.to);
             }
 
             ViewData.Model = data
