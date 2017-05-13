@@ -126,7 +126,7 @@ namespace MVC5Course.Controllers
             Product product = repo.get單筆資料ByProductId(id);
             //db.Product.Remove(product);
             //db.SaveChanges();
-
+            
             repo.Delete(product);
             repo.UnitOfWork.Commit();
             return RedirectToAction("Index");
@@ -135,7 +135,7 @@ namespace MVC5Course.Controllers
 
         public ActionResult ListProducts()
         {
-            var data = repo.getProduct列表頁所有資料(true,true)                
+            var data = repo.getProduct列表頁所有資料(Active: true, showAll: true)                
                 .Select(p => new ProductLiteVM()
                 {
                     ProductId = p.ProductId,

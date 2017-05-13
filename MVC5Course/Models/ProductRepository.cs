@@ -26,6 +26,14 @@ namespace MVC5Course.Models
             return this.All().FirstOrDefault(p => p.ProductId == id);
         }
 
+        public override void Delete(Product entity)
+        {
+            //刪除時，強迫關閉驗證
+            this.UnitOfWork.Context.Configuration.ValidateOnSaveEnabled = false;
+
+            entity.Is刪除 = true;
+        }
+
         public IQueryable<Product> getProduct列表頁所有資料(bool Active, bool? showAll = false)
         {
             IQueryable<Product> all = this.All();
