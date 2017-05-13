@@ -16,10 +16,18 @@ namespace MVC5Course
             //路由比對：執行時排除比對aspx
             routes.IgnoreRoute("{anything}/{resource}.aspx/{*pathInfo}");
 
+            //新增一組路由(較不建議使用)
+            //routes.MapRoute(
+            //    name: "Next",
+            //    url: "{controller}/{*params}",
+            //    defaults: new { controller = "Home", action = "Default", param = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
+                // 傳入多個路由id
+                //url: "{controller}/{action}/{*id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
