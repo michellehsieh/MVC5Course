@@ -37,7 +37,15 @@ namespace MVC5Course.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            return PartialView();
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("About");
+            }
+            else {
+                return View("About");
+            }
+
+            // return PartialView();
         }
 
         public ActionResult Contact()
