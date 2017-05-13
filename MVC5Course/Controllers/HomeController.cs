@@ -87,5 +87,16 @@ namespace MVC5Course.Controllers
             
             return PartialView("SuccessRedirect", "/");
         }
+
+
+        public ActionResult GetFile()
+        {
+            //網頁瀏覽
+            return File(Server.MapPath("~/Content/500-527.jpg"), "image/jpeg");
+
+            //強制下載，並存為NewName.jpg
+            //return File(Server.MapPath("~/Content/500-527.jpg"), "image/jpeg", "NewName.jpg");
+        }
+
     }
 }
