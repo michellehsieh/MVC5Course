@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+//using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,6 +10,17 @@ namespace MVC5Course.Controllers
     public class HomeController : BaseController
     {
         public ActionResult Index()
+        {
+            //return new ViewResult()
+            //{
+            //    ViewName = "About"
+            //};
+            // return View("About");
+
+            return View();
+        }
+
+        public ActionResult Unknow()
         {
             return View();
         }
@@ -31,5 +43,20 @@ namespace MVC5Course.Controllers
         {
             return View();
         }
+
+        //public string RenderRazorViewToString(string viewName, object model)
+        //{
+        //    ViewData.Model = model;
+        //    using (var sw = new StringWriter())
+        //    {
+        //        var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext,
+        //                                                                 viewName);
+        //        var viewContext = new ViewContext(ControllerContext, viewResult.View,
+        //                                     ViewData, TempData, sw);
+        //        viewResult.View.Render(viewContext, sw);
+        //        viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
+        //        return sw.GetStringBuilder().ToString();
+        //    }
+        //}
     }
 }
