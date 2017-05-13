@@ -156,17 +156,35 @@ namespace MVC5Course.Controllers
         }
 
 
-        public ActionResult ListProducts()
+        public ActionResult ListProducts(string q, int from = 0, int to = 99999)
         {
-            var data = repo.getProduct列表頁所有資料(Active: true, showAll: false)                
-                .Select(p => new ProductLiteVM()
-                {
-                    ProductId = p.ProductId,
-                    ProductName = p.ProductName,
-                    Price = p.Price,
-                    Stock = p.Stock
-                }).Take(10);
-            return View(data);
+            var data = repo.getProduct列表頁所有資料(true);
+
+            //表單送出只要有 Model Binding 就會有ModelState
+
+            if (!String.IsNullOrEmpty(q))
+            {
+                data = data.Where(p => p.ProductName.Contains(q));
+            }
+
+            if (from != 0) {
+                data = data.Where(p => p.Stock > from);
+            }
+
+            if (to != 0)
+            {
+                data = data.Where(p => p.Stock < to);
+            }
+
+            ViewData.Model = data
+                  .Select(p => new ProductLiteVM()
+                  {
+                      ProductId = p.ProductId,
+                      ProductName = p.ProductName,
+                      Price = p.Price,
+                      Stock = p.Stock
+                  });
+            return View();
         }
 
         public ActionResult CreateProduct()
