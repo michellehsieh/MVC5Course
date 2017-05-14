@@ -1,0 +1,43 @@
+﻿@{ 
+    @*不顯示Layout*@
+    Layout = "";
+    ViewBag.text = "<strong style='color: red;'>123</strong>";
+}
+
+@ViewBag.text
+
+@*Html.Raw沒有做編碼，則有XSS的風險(建議不使用)*@
+@Html.Raw(@ViewBag.text)
+
+@DateTime.Now
+@(1 + 2)
+
+@*當值為null時，會錯誤*@
+@if (ViewBag.IsEnabled) {
+    @: 啟用
+} else {    
+    @: 停用
+}
+
+@*修改判斷當值為null時，不執行*@
+@if (ViewBag.IsEnabled != null && ViewBag.IsEnabled) {
+    @: 啟用
+} else {
+    @: 停用
+}
+
+@*顯示Tag的作法*@
+@if (ViewBag.IsEnabled) {
+    <span>啟用</span>
+} else {
+    <span>停用</span>
+}
+
+@*不顯示Tag的作法*@
+@if (ViewBag.IsEnabled) {
+    <text>啟用</text>
+} else {
+    <text>停用</text>
+}
+
+text@(ViewBag.IsEnabled)

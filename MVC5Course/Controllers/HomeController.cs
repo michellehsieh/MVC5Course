@@ -111,6 +111,12 @@ namespace MVC5Course.Controllers
         //RedirectToAction  暫時轉址
         //RedirectToActionPermanent  永久轉址
         //只對搜尋引擎有差
-
+    public ActionResult VT()
+    {
+        ViewBag.IsEnabled = true;
+        return View();
     }
+    }
+
+    
 }
