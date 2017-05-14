@@ -16,6 +16,8 @@ namespace MVC5Course.Controllers
         //private FabricsEntities db = new FabricsEntities();
         ProductRepository repo = RepositoryHelper.GetProductRepository();
 
+        //OutputCache可增加30至40倍效能，個人化頁面不可Cache
+        //[OutputCache(Duration = 300, Location = System.Web.UI.OutputCacheLocation.ServerAndClient)]
         // GET: Products
         public ActionResult Index(bool Active = true)
         {
