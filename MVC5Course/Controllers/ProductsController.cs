@@ -115,7 +115,9 @@ namespace MVC5Course.Controllers
             //                   new string[] {"ProductId", "ProductName", "Price", "Active", "Stock"})
             // 2. TryUpdateModel(searchCondition, "searchCondition") ，prefix需自訂名稱
 
-            if (TryUpdateModel<Product>(product)) {
+            //只有傳入的欄位會被執行更新，不想被使用者更新的欄位，則不做更新
+            if (TryUpdateModel<Product>(product,
+                new string[] {"ProductId", "ProductName", "Price", "Active", "Stock"})) {
                 //db.Entry(product).State = EntityState.Modified;
                 //db.SaveChanges();
 
