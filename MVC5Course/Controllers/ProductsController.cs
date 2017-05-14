@@ -107,7 +107,7 @@ namespace MVC5Course.Controllers
         {
             // Bind(Include = "ProductId,ProductName,Price,Active,Stock")] Product product
 
-            // Model Binding導致資料意外update錯誤(當傳入欄位值更新時，原值被update)
+            // Model Binding導致資料意外update錯誤(當傳入欄位值更新時，原值會被以預設值update)
             var product = repo.get單筆資料ByProductId(id);
 
             // TryUpdateModel其他用法：
