@@ -29,8 +29,8 @@ namespace MVC5Course.Controllers
         public ActionResult About()
         {
             //ViewBag.Message = "Your application description page.";
-
-            return View();
+            throw new ArgumentException("Error Handled!");
+            //return View();
         }
 
         //執行時不套用Layout
