@@ -25,7 +25,7 @@ namespace MVC5Course.Controllers
             return View();
         }
 
-        [SharedViewBag(MyProperty = "")]
+        [SharedViewBag(MyProperty = "")]        
         public ActionResult About()
         {
             //ViewBag.Message = "Your application description page.";
