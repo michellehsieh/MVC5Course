@@ -15,9 +15,33 @@ namespace MVC5Course.Controllers
         private FabricsEntities db = new FabricsEntities();
 
         // GET: Clients
-        public ActionResult Index()
+        public ActionResult Index(int CreditRatingFilter = -1, string LastNameFilter = "")
         {
-            var client = db.Client.Include(c => c.Occupation);               
+            var Ratings = (from p in db.Client
+                           select p.CreditRating)
+                           .Distinct()
+                           .OrderBy(p => p)
+                           .ToList();
+
+            ViewBag.CreditRatingFilter = new SelectList(Ratings);
+
+            var LastName = (from p in db.Client
+                           select p.LastName)
+                           .Distinct()
+                           .OrderBy(p => p)
+                           .ToList();
+
+            ViewBag.LastNameFilter = new SelectList(LastName);
+
+            var client = db.Client.AsQueryable();
+
+            if (CreditRatingFilter >= 0) {
+                client = client.Where(p => p.CreditRating == CreditRatingFilter);
+            }
+
+            if (!string.IsNullOrEmpty(LastNameFilter)) {
+                client = client.Where(p => p.LastName == LastNameFilter);
+            }       
             return View(client.Take(10));
         }
 
@@ -63,7 +87,7 @@ namespace MVC5Course.Controllers
 
         // GET: Clients/Edit/5
         public ActionResult Edit(int? id)
-        {
+        {  
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -73,6 +97,10 @@ namespace MVC5Course.Controllers
             {
                 return HttpNotFound();
             }
+
+            var items = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            ViewBag.CreditRating = new SelectList(items);
+
             ViewBag.OccupationId = new SelectList(db.Occupation, "OccupationId", "OccupationName", client.OccupationId);
             return View(client);
         }
