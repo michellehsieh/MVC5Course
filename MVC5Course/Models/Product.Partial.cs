@@ -75,6 +75,8 @@ namespace MVC5Course.Models
         public Nullable<decimal> Stock { get; set; }
 
         public bool Is刪除 { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]
         public System.DateTime CreatedOn { get; set; }
 
         public virtual ICollection<OrderLine> OrderLine { get; set; }
