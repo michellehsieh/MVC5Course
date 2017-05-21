@@ -78,7 +78,7 @@ namespace MVC5Course.Models
 
         // 如果使用DataType.Date，則必須使用DisplayFormat且DataFormatString必須為"{0:yyyy-MM-dd}"
         // Chrome只認得"-"分隔的日期格式
-        [DataType(DataType.Date)]
+        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]
         public System.DateTime CreatedOn { get; set; }
 
