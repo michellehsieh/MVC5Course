@@ -1,0 +1,29 @@
+﻿@model string
+
+@if (Model == "M")
+{
+    @("👱男性")
+}
+else if (Model == "F")
+{
+    @("👩女性")
+}
+else
+{
+    @("N/A")
+}
+
+
+@*@switch (Model)
+{
+    case "M":
+        @("👱男性")
+        break;
+    case "F":
+        @("👩女性")
+        break;
+    default:
+        @("N/A")
+        break;
+}*@
+    
